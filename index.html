@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shahnur Alam — WordPress &amp; WooCommerce Plugin Developer</title>
+<meta name="description" content="Shahnur Alam — Senior WordPress &amp; WooCommerce plugin developer and full-stack engineer. Booking &amp; rental systems, custom plugins, React, Laravel and Flutter apps.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shahnur Alam — WordPress &amp; WooCommerce Developer">
+<meta property="og:description" content="Senior WordPress / WooCommerce plugin developer specialising in booking &amp; rental systems, plus full-stack React, Laravel and Flutter work.">
+<meta property="og:url" content="https://shahnuralam.github.io/">
+<meta name="theme-color" content="#0ea5e9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230ea5e9'/%3E%3Cstop offset='1' stop-color='%236366f1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='52' font-weight='700' fill='white' text-anchor='middle'%3ESA%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --a:#0ea5e9; --a2:#6366f1; --a-ink:#0369a1;
+    --bg:#ffffff; --bg-soft:#f6f8fb; --bg-card:#ffffff;
+    --text:#0f172a; --muted:#5b6478; --border:#e7eaf1;
+    --shadow:0 1px 2px rgba(15,23,42,.05),0 16px 40px -18px rgba(15,23,42,.22);
+    --radius:16px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --a:#38bdf8; --a2:#818cf8; --a-ink:#7dd3fc;
+      --bg:#0a0f1c; --bg-soft:#0e1526; --bg-card:#111a2e;
+      --text:#e8edf7; --muted:#9aa6bf; --border:#1e2942;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 20px 48px -20px rgba(0,0,0,.7);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  svg{flex:none}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;padding:12px 20px;border-radius:12px;border:1px solid transparent;cursor:pointer;transition:transform .12s,box-shadow .12s,border-color .12s}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:linear-gradient(135deg,var(--a),var(--a2));color:#fff;box-shadow:0 10px 24px -10px rgba(14,165,233,.8)}
+  .btn-ghost{background:var(--bg-card);border-color:var(--border);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--a)}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:30;backdrop-filter:saturate(1.3) blur(10px);
+    background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--border)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em}
+  .brand .mk{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--a),var(--a2));display:grid;place-items:center;color:#fff;font-weight:800;font-size:14px}
+  .nav-links{display:flex;align-items:center;gap:22px;color:var(--muted);font-weight:500;font-size:15px}
+  .nav-links a:hover{color:var(--text)}
+  @media(max-width:720px){.nav-links a.hide-sm{display:none}}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:70px 0 56px}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(50% 55% at 15% 0%,rgba(14,165,233,.16),transparent 70%),
+    radial-gradient(45% 50% at 90% 10%,rgba(99,102,241,.16),transparent 70%);pointer-events:none}
+  .hero-in{position:relative;display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center}
+  @media(max-width:640px){.hero-in{grid-template-columns:1fr;text-align:center;gap:22px}}
+  .avatar{width:132px;height:132px;border-radius:26px;position:relative;background:linear-gradient(135deg,var(--a),var(--a2));display:grid;place-items:center;color:#fff;font-size:44px;font-weight:800;box-shadow:var(--shadow);overflow:hidden}
+  .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  @media(max-width:640px){.avatar{margin:0 auto}}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--a-ink);
+    background:color-mix(in srgb,var(--a) 12%,var(--bg));border:1px solid color-mix(in srgb,var(--a) 26%,transparent);
+    padding:5px 12px;border-radius:999px;margin-bottom:14px}
+  h1{font-size:clamp(30px,5.4vw,46px);line-height:1.06;letter-spacing:-.035em;margin:0 0 10px;font-weight:800}
+  .role{font-size:clamp(16px,2.4vw,19px);color:var(--muted);margin:0 0 6px;font-weight:600}
+  .role .grad{background:linear-gradient(135deg,var(--a),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .loc{color:var(--muted);font-size:14.5px;display:inline-flex;align-items:center;gap:6px;margin-bottom:20px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap}
+  @media(max-width:640px){.cta{justify-content:center}}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+  @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:18px 18px;text-align:center}
+  .stat b{display:block;font-size:26px;letter-spacing:-.02em;font-weight:800;
+    background:linear-gradient(135deg,var(--a),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat span{color:var(--muted);font-size:13px;font-weight:500}
+
+  section{padding:66px 0}
+  .sec-head{max-width:640px;margin:0 0 34px}
+  .sec-head .k{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--a-ink)}
+  .sec-head h2{font-size:clamp(24px,4vw,34px);letter-spacing:-.03em;margin:8px 0 10px;font-weight:800}
+  .sec-head p{color:var(--muted);font-size:16.5px;margin:0}
+  .alt{background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .lead{font-size:clamp(16px,2vw,18px);color:var(--muted);max-width:760px}
+  .lead b{color:var(--text);font-weight:600}
+
+  /* projects */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .proj{display:flex;flex-direction:column;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:transform .15s,border-color .15s,box-shadow .15s}
+  .proj:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--a) 42%,var(--border));box-shadow:var(--shadow)}
+  .proj .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .proj .ico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--a),var(--a2))}
+  .proj .star{font-size:12.5px;color:var(--muted);display:inline-flex;align-items:center;gap:4px;font-weight:600}
+  .proj h3{margin:0 0 7px;font-size:16.5px;letter-spacing:-.01em}
+  .proj p{margin:0 0 16px;color:var(--muted);font-size:14px;flex:1}
+  .proj .foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .lang{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);font-weight:600}
+  .ld{width:10px;height:10px;border-radius:50%}
+  .links{display:flex;gap:14px;font-size:13px;font-weight:600}
+  .links a{color:var(--a-ink);display:inline-flex;align-items:center;gap:4px}
+  .links a:hover{text-decoration:underline}
+
+  .more{margin-top:30px;text-align:center}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:720px){.skills{grid-template-columns:1fr}}
+  .skb{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+  .skb h4{margin:0 0 14px;font-size:14px;letter-spacing:.02em;display:flex;align-items:center;gap:9px}
+  .skb h4 .d{width:9px;height:9px;border-radius:3px;background:linear-gradient(135deg,var(--a),var(--a2))}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:13px;font-weight:600;color:var(--text);background:var(--bg-soft);border:1px solid var(--border);padding:6px 12px;border-radius:9px}
+
+  /* contact */
+  .band{background:linear-gradient(135deg,var(--a),var(--a2));color:#fff;border-radius:22px;padding:52px 32px;text-align:center;box-shadow:0 26px 64px -26px rgba(14,165,233,.8)}
+  .band h2{font-size:clamp(24px,3.6vw,32px);margin:0 0 12px;letter-spacing:-.02em}
+  .band p{opacity:.94;margin:0 0 26px;font-size:17px}
+  .band .cta{justify-content:center}
+  .band .btn-primary{background:#fff;color:var(--a-ink)}
+  .band .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+  .band .btn-ghost:hover{border-color:#fff}
+
+  footer{border-top:1px solid var(--border);padding:34px 0;color:var(--muted);font-size:14px}
+  .foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-in a:hover{color:var(--text)}
+</style>
+</head>
+<body id="top">
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><span class="mk">SA</span>Shahnur Alam</a>
+    <nav class="nav-links">
+      <a class="hide-sm" href="#about">About</a>
+      <a class="hide-sm" href="#work">Work</a>
+      <a class="hide-sm" href="#skills">Skills</a>
+      <a class="btn btn-ghost" style="padding:8px 15px;font-size:14px" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-in">
+      <div class="avatar">SA<img src="https://avatars.githubusercontent.com/u/27945895?v=4" alt="Shahnur Alam" onerror="this.remove()"></div>
+      <div>
+        <span class="eyebrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+          Available for freelance &amp; contract work
+        </span>
+        <h1>Shahnur Alam</h1>
+        <p class="role"><span class="grad">WordPress &amp; WooCommerce Plugin Developer</span> · Full-Stack Engineer</p>
+        <p class="loc">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Dhaka, Bangladesh
+        </p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#work">View my work</a>
+          <a class="btn btn-ghost" href="https://github.com/Shahnuralam" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5Z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>24</b><span>Public repositories</span></div>
+      <div class="stat"><b>9 yrs</b><span>Building on GitHub</span></div>
+      <div class="stat"><b>50+</b><span>Plugins &amp; add-ons shipped</span></div>
+      <div class="stat"><b>6+</b><span>Languages &amp; stacks</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="k">About</span><h2>Booking systems are my specialty</h2></div>
+    <p class="lead">
+      I'm a software engineer focused on <b>WordPress &amp; WooCommerce</b>, and a core developer behind the
+      <b>MagePeople Team</b> plugin suite — a family of booking and rental products for
+      <b>bus, tour, taxi, event, ferry, rental and theater</b> businesses, along with dozens of add-ons and WooCommerce extensions.
+      I build clean, self-contained plugin architectures (custom MVC, routers, Active-Record models) and care about
+      security, escaping, and WordPress coding standards. Beyond WordPress I also ship full-stack apps in
+      <b>React / TypeScript, Laravel and Flutter</b>.
+    </p>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="k">Selected work</span><h2>Featured projects</h2>
+      <p>A slice of my public repositories — booking platforms, WooCommerce extensions and apps.</p></div>
+
+    <div class="grid">
+
+      <div class="proj">
+        <div class="top">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 4h9a3 3 0 0 1 3 3v13H9a3 3 0 0 0-3 3z"/><path d="M9 9h6M9 13h6" stroke-linecap="round"/></svg></div>
+        </div>
+        <h3>MiniDocs</h3>
+        <p>Self-contained WordPress knowledge base &amp; documentation plugin — full-screen admin, rich-text editor, and a professional docs site from one shortcode.</p>
+        <div class="foot">
+          <span class="lang"><span class="ld" style="background:#4F5D95"></span>PHP</span>
+          <span class="links">
+            <a href="https://shahnuralam.github.io/minidocs/" target="_blank" rel="noopener">Live ↗</a>
+            <a href="https://github.com/Shahnuralam/minidocs" target="_blank" rel="noopener">Code ↗</a>
+          </span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="top">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="11" rx="2"/><path d="M3 11h18"/><circle cx="7.5" cy="20" r="1.5"/><circle cx="16.5" cy="20" r="1.5"/></svg></div>
+          <span class="star">★ 3</span>
+        </div>
+        <h3>Bus Ticket Booking with Seat Reservation</h3>
+        <p>WordPress bus reservation system with interactive seat maps, routes, schedules and online payments — the flagship MagePeople transport plugin.</p>
+        <div class="foot">
+          <span class="lang"><span class="ld" style="background:#4F5D95"></span>PHP</span>
+          <span class="links"><a href="https://github.com/magepeopleteam/bus-ticket-booking-with-seat-reservation" target="_blank" rel="noopener">Code ↗</a></span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="top">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
+          <span class="star">★ 2</span>
+        </div>
+        <h3>Booking &amp; Rental Manager for WooCommerce</h3>
+        <p>Turn any WooCommerce product into a bookable or rentable item — availability calendars, date-range pricing rules and rental add-ons.</p>
+        <div class="foot">
+          <span class="lang"><span class="ld" style="background:#4F5D95"></span>PHP</span>
+          <span class="links"><a href="https://github.com/magepeopleteam/booking-and-rental-manager-for-woocommerce" target="_blank" rel="noopener">Code ↗</a></span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="top">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 13h6" /></svg></div>
+          <span class="star">★ 2</span>
+        </div>
+        <h3>Mage EventPress</h3>
+        <p>WooCommerce event management &amp; ticketing — schedules, seat plans, QR-code tickets, waitlists and attendee management via a rich add-on ecosystem.</p>
+        <div class="foot">
+          <span class="lang"><span class="ld" style="background:#4F5D95"></span>PHP</span>
+          <span class="links"><a href="https://github.com/magepeopleteam/mage-eventpress" target="_blank" rel="noopener">Code ↗</a></span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="top">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+          <span class="star">★ 3</span>
+        </div>
+        <h3>Deposits &amp; Partial Payment for WooCommerce</h3>
+        <p>Let customers confirm orders with a deposit or installment — flexible percentage or fixed terms, with the balance payable later from the account page.</p>
+        <div class="foot">
+          <span class="lang"><span class="ld" style="background:#4F5D95"></span>PHP</span>
+          <span class="links"><a href="https://github.com/magepeopleteam/advanced-partial-payment-or-deposit-for-woocommerce" target="_blank" rel="noopener">Code ↗</a></span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="top">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        </div>
+        <h3>Tour Booking Manager</h3>
+        <p>End-to-end tour-operator booking platform — itineraries, seasonal &amp; group pricing, early-bird deals, backend orders and PDF tickets.</p>
+        <div class="foot">
+          <span class="lang"><span class="ld" style="background:#4F5D95"></span>PHP</span>
+          <span class="links"><a href="https://github.com/magepeopleteam/tour-booking-manager" target="_blank" rel="noopener">Code ↗</a></span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="top">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><rect x="3" y="11" width="18" height="6" rx="2"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/></svg></div>
+        </div>
+        <h3>eCab Taxi Booking Manager</h3>
+        <p>On-demand taxi &amp; ride booking for WordPress — fare rules, distance-based and peak-hour pricing, and driver/company management.</p>
+        <div class="foot">
+          <span class="lang"><span class="ld" style="background:#4F5D95"></span>PHP</span>
+          <span class="links"><a href="https://github.com/magepeopleteam/ecab-taxi-booking-manager" target="_blank" rel="noopener">Code ↗</a></span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="top">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18s3-8 9-8 9 8 9 8"/><path d="M3 18h18"/><path d="M12 4v2"/></svg></div>
+        </div>
+        <h3>Cruise Collective</h3>
+        <p>Full-stack cruise-booking platform — a TypeScript front end backed by a Node.js API, built as separate frontend/backend services.</p>
+        <div class="foot">
+          <span class="lang"><span class="ld" style="background:#3178c6"></span>TypeScript</span>
+          <span class="links">
+            <a href="https://github.com/Shahnuralam/Cruise-Collective-Frontend" target="_blank" rel="noopener">Front ↗</a>
+            <a href="https://github.com/Shahnuralam/Cruise-Collective-Backend" target="_blank" rel="noopener">API ↗</a>
+          </span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="top">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4v4h4v4h-4v10h-4V11H6V7h4z"/></svg></div>
+          <span class="star">★ 4</span>
+        </div>
+        <h3>Pharmacy Management System</h3>
+        <p>Inventory, sales and stock-management system for pharmacies — product catalog, billing and reporting.</p>
+        <div class="foot">
+          <span class="lang"><span class="ld" style="background:#4F5D95"></span>PHP</span>
+          <span class="links"><a href="https://github.com/Shahnuralam/Pharmacy-Management-system" target="_blank" rel="noopener">Code ↗</a></span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="more">
+      <a class="btn btn-ghost" href="https://github.com/Shahnuralam?tab=repositories" target="_blank" rel="noopener">Explore all repositories on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="k">Toolbox</span><h2>Skills &amp; stack</h2></div>
+    <div class="skills">
+      <div class="skb">
+        <h4><span class="d"></span>WordPress &amp; WooCommerce</h4>
+        <div class="chips">
+          <span class="chip">Plugin &amp; Addon Architecture</span>
+          <span class="chip">Custom MVC frameworks</span>
+          <span class="chip">Hooks &amp; Filters</span>
+          <span class="chip">WooCommerce APIs</span>
+          <span class="chip">Gutenberg</span>
+          <span class="chip">Elementor</span>
+          <span class="chip">WP REST API</span>
+          <span class="chip">WP-CLI</span>
+        </div>
+      </div>
+      <div class="skb">
+        <h4><span class="d"></span>Languages</h4>
+        <div class="chips">
+          <span class="chip">PHP</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">Dart</span>
+          <span class="chip">SQL</span>
+          <span class="chip">HTML5 &amp; CSS3</span>
+        </div>
+      </div>
+      <div class="skb">
+        <h4><span class="d"></span>Frameworks &amp; Frontend</h4>
+        <div class="chips">
+          <span class="chip">React</span>
+          <span class="chip">Laravel / Blade</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">Flutter</span>
+        </div>
+      </div>
+      <div class="skb">
+        <h4><span class="d"></span>Data &amp; Tooling</h4>
+        <div class="chips">
+          <span class="chip">MySQL / MariaDB</span>
+          <span class="chip">Git &amp; GitHub</span>
+          <span class="chip">Composer</span>
+          <span class="chip">Webpack</span>
+          <span class="chip">Puppeteer</span>
+          <span class="chip">Payment Gateways</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt">
+  <div class="wrap">
+    <div class="band">
+      <h2>Let's build something</h2>
+      <p>Have a WordPress plugin, a booking system, or a full-stack app in mind? I'd love to hear about it.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="mailto:shahnuralamdtclbd@gmail.com">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Email me
+        </a>
+        <a class="btn btn-ghost" href="https://shahnur.online" target="_blank" rel="noopener">Website ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/Shahnuralam" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand" style="font-size:15px"><span class="mk" style="width:26px;height:26px;font-size:12px">SA</span>Shahnur Alam</div>
+    <div>© <span id="yr">2026</span> Shahnur Alam · Built with plain HTML &amp; CSS · <a href="https://github.com/Shahnuralam" target="_blank" rel="noopener">@Shahnuralam</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
