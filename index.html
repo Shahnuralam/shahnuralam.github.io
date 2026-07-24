@@ -49,7 +49,7 @@
   .brand .mk{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--a),var(--a2));display:grid;place-items:center;color:#fff;font-weight:800;font-size:14px}
   .nav-links{display:flex;align-items:center;gap:22px;color:var(--muted);font-weight:500;font-size:15px}
   .nav-links a:hover{color:var(--text)}
-  @media(max-width:720px){.nav-links a.hide-sm{display:none}}
+  @media(max-width:760px){.nav-links a.hide-sm{display:none}}
 
   /* hero */
   .hero{position:relative;overflow:hidden;padding:70px 0 56px}
@@ -67,9 +67,10 @@
   h1{font-size:clamp(30px,5.4vw,46px);line-height:1.06;letter-spacing:-.035em;margin:0 0 10px;font-weight:800}
   .role{font-size:clamp(16px,2.4vw,19px);color:var(--muted);margin:0 0 6px;font-weight:600}
   .role .grad{background:linear-gradient(135deg,var(--a),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .loc{color:var(--muted);font-size:14.5px;display:inline-flex;align-items:center;gap:6px;margin-bottom:20px}
+  .loc{color:var(--muted);font-size:14.5px;display:inline-flex;align-items:center;gap:6px;margin-bottom:20px;flex-wrap:wrap}
   .cta{display:flex;gap:12px;flex-wrap:wrap}
   @media(max-width:640px){.cta{justify-content:center}}
+  .icon-btn{padding:12px 14px}
 
   /* stats */
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
@@ -88,6 +89,25 @@
   .lead{font-size:clamp(16px,2vw,18px);color:var(--muted);max-width:760px}
   .lead b{color:var(--text);font-weight:600}
 
+  /* activity */
+  .act{display:grid;grid-template-columns:1.15fr 1fr;gap:22px}
+  @media(max-width:800px){.act{grid-template-columns:1fr}}
+  .act-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+  .act-card h4{margin:0 0 4px;font-size:15px}
+  .act-card .sub{color:var(--muted);font-size:13px;margin:0 0 18px}
+  .bar-row{margin:15px 0}
+  .bar-row .lab{display:flex;justify-content:space-between;font-size:13.5px;font-weight:600;margin-bottom:6px}
+  .bar-row .lab em{color:var(--muted);font-style:normal;font-weight:600}
+  .track{height:9px;border-radius:6px;background:var(--bg-soft);overflow:hidden;border:1px solid var(--border)}
+  .track i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--a),var(--a2))}
+  .meta-list{display:flex;flex-direction:column;gap:16px}
+  .meta-item{display:flex;gap:13px;align-items:flex-start}
+  .meta-item .mi{width:38px;height:38px;border-radius:10px;background:color-mix(in srgb,var(--a) 12%,var(--bg));color:var(--a-ink);display:grid;place-items:center;flex:none}
+  .meta-item b{font-size:14.5px}
+  .meta-item p{margin:2px 0 0;color:var(--muted);font-size:13.5px}
+  .badges2{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .tag2{font-size:12.5px;font-weight:600;color:var(--a-ink);background:color-mix(in srgb,var(--a) 12%,var(--bg));border:1px solid color-mix(in srgb,var(--a) 24%,transparent);padding:5px 11px;border-radius:999px}
+
   /* projects */
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   @media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
@@ -105,8 +125,18 @@
   .links{display:flex;gap:14px;font-size:13px;font-weight:600}
   .links a{color:var(--a-ink);display:inline-flex;align-items:center;gap:4px}
   .links a:hover{text-decoration:underline}
-
   .more{margin-top:30px;text-align:center}
+
+  /* gists */
+  .gists{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:640px){.gists{grid-template-columns:1fr}}
+  .gist{display:flex;gap:14px;align-items:flex-start;background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px;transition:border-color .15s,transform .15s}
+  .gist:hover{border-color:color-mix(in srgb,var(--a) 42%,var(--border));transform:translateY(-2px)}
+  .gist .gi{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--a),var(--a2));flex:none}
+  .gist b{font-size:15px}
+  .gist p{margin:3px 0 8px;color:var(--muted);font-size:13.5px}
+  .gist .files{display:flex;flex-wrap:wrap;gap:6px}
+  .gist .f{font-size:11.5px;color:var(--muted);background:var(--bg-soft);border:1px solid var(--border);padding:3px 8px;border-radius:6px}
 
   /* skills */
   .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
@@ -128,6 +158,7 @@
 
   footer{border-top:1px solid var(--border);padding:34px 0;color:var(--muted);font-size:14px}
   .foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot-in .soc{display:flex;gap:16px}
   .foot-in a:hover{color:var(--text)}
 </style>
 </head>
@@ -138,6 +169,7 @@
     <a class="brand" href="#top"><span class="mk">SA</span>Shahnur Alam</a>
     <nav class="nav-links">
       <a class="hide-sm" href="#about">About</a>
+      <a class="hide-sm" href="#activity">Activity</a>
       <a class="hide-sm" href="#work">Work</a>
       <a class="hide-sm" href="#skills">Skills</a>
       <a class="btn btn-ghost" style="padding:8px 15px;font-size:14px" href="#contact">Contact</a>
@@ -159,7 +191,7 @@
         <p class="role"><span class="grad">WordPress &amp; WooCommerce Plugin Developer</span> · Full-Stack Engineer</p>
         <p class="loc">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          Dhaka, Bangladesh
+          Dhaka, Bangladesh · Core developer @ MagePeople Team
         </p>
         <div class="cta">
           <a class="btn btn-primary" href="#work">View my work</a>
@@ -167,15 +199,18 @@
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5Z"/></svg>
             GitHub
           </a>
+          <a class="btn btn-ghost icon-btn" href="https://www.linkedin.com/in/alamshahnur" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.2 8.4h4.56V24H.2zM8.34 8.4h4.37v2.13h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v8.84h-4.56v-7.84c0-1.87-.03-4.28-2.6-4.28-2.6 0-3 2.03-3 4.13V24H8.34z"/></svg>
+          </a>
         </div>
       </div>
     </div>
 
     <div class="stats">
-      <div class="stat"><b>24</b><span>Public repositories</span></div>
-      <div class="stat"><b>9 yrs</b><span>Building on GitHub</span></div>
-      <div class="stat"><b>50+</b><span>Plugins &amp; add-ons shipped</span></div>
-      <div class="stat"><b>6+</b><span>Languages &amp; stacks</span></div>
+      <div class="stat"><b>1,841</b><span>Contributions last year</span></div>
+      <div class="stat"><b>79</b><span>Repositories contributed to</span></div>
+      <div class="stat"><b>25</b><span>Public repositories</span></div>
+      <div class="stat"><b>2017</b><span>Building on GitHub since</span></div>
     </div>
   </div>
 </div>
@@ -187,7 +222,7 @@
     <p class="lead">
       I'm a software engineer focused on <b>WordPress &amp; WooCommerce</b>, and a core developer behind the
       <b>MagePeople Team</b> plugin suite — a family of booking and rental products for
-      <b>bus, tour, taxi, event, ferry, rental and theater</b> businesses, along with dozens of add-ons and WooCommerce extensions.
+      <b>bus, tour, taxi, event, ferry, rental, service and theater</b> businesses, along with dozens of add-ons and WooCommerce extensions.
       I build clean, self-contained plugin architectures (custom MVC, routers, Active-Record models) and care about
       security, escaping, and WordPress coding standards. Beyond WordPress I also ship full-stack apps in
       <b>React / TypeScript, Laravel and Flutter</b>.
@@ -195,8 +230,57 @@
   </div>
 </section>
 
+<!-- GITHUB ACTIVITY -->
+<section id="activity" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="k">GitHub Activity</span><h2>Shipping code, consistently</h2>
+      <p>1,841 contributions in the last year across 79 repositories — mostly production plugin work.</p></div>
+    <div class="act">
+      <div class="act-card">
+        <h4>Contribution mix (last 12 months)</h4>
+        <p class="sub">How my activity breaks down across GitHub.</p>
+        <div class="bar-row">
+          <div class="lab"><span>Commits</span><em>63%</em></div>
+          <div class="track"><i style="width:63%"></i></div>
+        </div>
+        <div class="bar-row">
+          <div class="lab"><span>Pull requests</span><em>36%</em></div>
+          <div class="track"><i style="width:36%"></i></div>
+        </div>
+        <div class="bar-row">
+          <div class="lab"><span>Issues</span><em>1%</em></div>
+          <div class="track"><i style="width:4%"></i></div>
+        </div>
+        <div class="badges2">
+          <span class="tag2">Pull Shark ×3</span>
+          <span class="tag2">Pair Extraordinaire</span>
+          <span class="tag2">Quickdraw</span>
+          <span class="tag2">YOLO</span>
+          <span class="tag2">GitHub PRO</span>
+        </div>
+      </div>
+      <div class="act-card">
+        <div class="meta-list">
+          <div class="meta-item">
+            <span class="mi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></span>
+            <div><b>Daily, year-round activity</b><p>A near-solid contribution graph — active most days of the year.</p></div>
+          </div>
+          <div class="meta-item">
+            <span class="mi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>
+            <div><b>MagePeople Team</b><p>Core contributor to the org's booking-plugin suite (bus, tour, event, rental &amp; more).</p></div>
+          </div>
+          <div class="meta-item">
+            <span class="mi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg></span>
+            <div><b>PHP-first, polyglot</b><p>PHP for WordPress; TypeScript, Dart and Blade across the rest of the stack.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WORK -->
-<section id="work" class="alt">
+<section id="work">
   <div class="wrap">
     <div class="sec-head"><span class="k">Selected work</span><h2>Featured projects</h2>
       <p>A slice of my public repositories — booking platforms, WooCommerce extensions and apps.</p></div>
@@ -296,6 +380,30 @@
 
       <div class="proj">
         <div class="top">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="M9 14h6"/></svg></div>
+        </div>
+        <h3>Service Booking Manager</h3>
+        <p>Appointment &amp; service-booking system for WordPress — staff, availability, time-slot scheduling and online payments for service businesses.</p>
+        <div class="foot">
+          <span class="lang"><span class="ld" style="background:#4F5D95"></span>PHP</span>
+          <span class="links"><a href="https://github.com/magepeopleteam/service-booking-manager" target="_blank" rel="noopener">Code ↗</a></span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="top">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h20v13H2z"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        </div>
+        <h3>WPTheaterly — Theater Booking</h3>
+        <p>WordPress theater &amp; venue booking plugin — shows, seat layouts and ticketing for cinemas and performance venues.</p>
+        <div class="foot">
+          <span class="lang"><span class="ld" style="background:#4F5D95"></span>PHP</span>
+          <span class="links"><a href="https://github.com/magepeopleteam/wptheaterly" target="_blank" rel="noopener">Code ↗</a></span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="top">
           <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18s3-8 9-8 9 8 9 8"/><path d="M3 18h18"/><path d="M12 4v2"/></svg></div>
         </div>
         <h3>Cruise Collective</h3>
@@ -305,6 +413,21 @@
           <span class="links">
             <a href="https://github.com/Shahnuralam/Cruise-Collective-Frontend" target="_blank" rel="noopener">Front ↗</a>
             <a href="https://github.com/Shahnuralam/Cruise-Collective-Backend" target="_blank" rel="noopener">API ↗</a>
+          </span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="top">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+        </div>
+        <h3>MCQ — Quiz App</h3>
+        <p>A cross-platform multiple-choice quiz application built with Flutter (Dart), with a live web build deployed on Vercel.</p>
+        <div class="foot">
+          <span class="lang"><span class="ld" style="background:#00B4AB"></span>Dart</span>
+          <span class="links">
+            <a href="https://mcq-new.vercel.app" target="_blank" rel="noopener">Live ↗</a>
+            <a href="https://github.com/Shahnuralam/mcq-new" target="_blank" rel="noopener">Code ↗</a>
           </span>
         </div>
       </div>
@@ -326,6 +449,32 @@
 
     <div class="more">
       <a class="btn btn-ghost" href="https://github.com/Shahnuralam?tab=repositories" target="_blank" rel="noopener">Explore all repositories on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- GISTS -->
+<section id="gists" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="k">Snippets</span><h2>Public gists</h2>
+      <p>Small, reusable snippets and mini-plugins I've shared publicly.</p></div>
+    <div class="gists">
+      <a class="gist" href="https://gist.github.com/Shahnuralam/8d3f905450b5aee7ba7c4392ed2bf1ef" target="_blank" rel="noopener">
+        <span class="gi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <div>
+          <b>Review Popup Plugin</b>
+          <p>A WordPress plugin that shows a popup prompting customers to review recent purchases.</p>
+          <div class="files"><span class="f">review-popup-plugin.php</span><span class="f">review-popup.css</span><span class="f">review-popup.js</span></div>
+        </div>
+      </a>
+      <a class="gist" href="https://gist.github.com/Shahnuralam/909dbe7d2482d7ada72b5357fd939968" target="_blank" rel="noopener">
+        <span class="gi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <div>
+          <b>Custom Reward Points From API</b>
+          <p>WooCommerce reward-point logic that assigns points to customers based on data pulled from an external API.</p>
+          <div class="files"><span class="f">Reward_Point.php</span></div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -390,12 +539,16 @@
       <h2>Let's build something</h2>
       <p>Have a WordPress plugin, a booking system, or a full-stack app in mind? I'd love to hear about it.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="mailto:shahnuralamdtclbd@gmail.com">
+        <a class="btn btn-primary" href="mailto:shahnurlfe@gmail.com">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
           Email me
         </a>
-        <a class="btn btn-ghost" href="https://shahnur.online" target="_blank" rel="noopener">Website ↗</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/alamshahnur" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.2 8.4h4.56V24H.2zM8.34 8.4h4.37v2.13h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v8.84h-4.56v-7.84c0-1.87-.03-4.28-2.6-4.28-2.6 0-3 2.03-3 4.13V24H8.34z"/></svg>
+          LinkedIn
+        </a>
         <a class="btn btn-ghost" href="https://github.com/Shahnuralam" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-ghost" href="https://shahnur.online" target="_blank" rel="noopener">Website ↗</a>
       </div>
     </div>
   </div>
@@ -404,7 +557,12 @@
 <footer>
   <div class="wrap foot-in">
     <div class="brand" style="font-size:15px"><span class="mk" style="width:26px;height:26px;font-size:12px">SA</span>Shahnur Alam</div>
-    <div>© <span id="yr">2026</span> Shahnur Alam · Built with plain HTML &amp; CSS · <a href="https://github.com/Shahnuralam" target="_blank" rel="noopener">@Shahnuralam</a></div>
+    <div class="soc">
+      <a href="https://github.com/Shahnuralam" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/alamshahnur" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:shahnurlfe@gmail.com">Email</a>
+      <a href="https://shahnur.online" target="_blank" rel="noopener">Website</a>
+    </div>
   </div>
 </footer>
 
