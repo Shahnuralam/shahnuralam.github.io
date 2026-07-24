@@ -160,9 +160,33 @@
   .foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
   .foot-in .soc{display:flex;gap:16px}
   .foot-in a:hover{color:var(--text)}
+
+  /* ---------- 3D scroll scene ---------- */
+  #bg{position:fixed;inset:0;width:100%;height:100vh;z-index:-1;display:block;pointer-events:none}
+  body{background:var(--bg)}
+  /* Glassy sections so the fixed 3D scene glows through while text stays readable */
+  section{position:relative;background:color-mix(in srgb,var(--bg) 78%,transparent);
+    -webkit-backdrop-filter:blur(9px) saturate(1.15);backdrop-filter:blur(9px) saturate(1.15)}
+  .alt{background:color-mix(in srgb,var(--bg-soft) 78%,transparent)}
+  .hero{background:transparent}
+  footer{position:relative;background:color-mix(in srgb,var(--bg) 78%,transparent);
+    -webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px)}
+  /* Cards get a subtle glass tint (kept high-opacity for crisp text) */
+  .stat,.proj,.act-card,.skb,.gist{background:color-mix(in srgb,var(--bg-card) 84%,transparent);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  /* Scroll-reveal */
+  .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  /* 3D tilt cards */
+  .tilt{transform-style:preserve-3d;will-change:transform}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    #bg{opacity:.55}
+  }
 </style>
 </head>
 <body id="top">
+<canvas id="bg" aria-hidden="true"></canvas>
 
 <header class="nav">
   <div class="wrap nav-in">
@@ -206,17 +230,17 @@
       </div>
     </div>
 
-    <div class="stats">
-      <div class="stat"><b>1,841</b><span>Contributions last year</span></div>
-      <div class="stat"><b>79</b><span>Repositories contributed to</span></div>
-      <div class="stat"><b>25</b><span>Public repositories</span></div>
-      <div class="stat"><b>2017</b><span>Building on GitHub since</span></div>
+    <div class="stats reveal">
+      <div class="stat tilt"><b>1,841</b><span>Contributions last year</span></div>
+      <div class="stat tilt"><b>79</b><span>Repositories contributed to</span></div>
+      <div class="stat tilt"><b>25</b><span>Public repositories</span></div>
+      <div class="stat tilt"><b>2017</b><span>Building on GitHub since</span></div>
     </div>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="reveal">
   <div class="wrap">
     <div class="sec-head"><span class="k">About</span><h2>Booking systems are my specialty</h2></div>
     <p class="lead">
@@ -231,12 +255,12 @@
 </section>
 
 <!-- GITHUB ACTIVITY -->
-<section id="activity" class="alt">
+<section id="activity" class="alt reveal">
   <div class="wrap">
     <div class="sec-head"><span class="k">GitHub Activity</span><h2>Shipping code, consistently</h2>
       <p>1,841 contributions in the last year across 79 repositories — mostly production plugin work.</p></div>
     <div class="act">
-      <div class="act-card">
+      <div class="act-card tilt">
         <h4>Contribution mix (last 12 months)</h4>
         <p class="sub">How my activity breaks down across GitHub.</p>
         <div class="bar-row">
@@ -259,7 +283,7 @@
           <span class="tag2">GitHub PRO</span>
         </div>
       </div>
-      <div class="act-card">
+      <div class="act-card tilt">
         <div class="meta-list">
           <div class="meta-item">
             <span class="mi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></span>
@@ -280,14 +304,14 @@
 </section>
 
 <!-- WORK -->
-<section id="work">
+<section id="work" class="reveal">
   <div class="wrap">
     <div class="sec-head"><span class="k">Selected work</span><h2>Featured projects</h2>
       <p>A slice of my public repositories — booking platforms, WooCommerce extensions and apps.</p></div>
 
     <div class="grid">
 
-      <div class="proj">
+      <div class="proj tilt">
         <div class="top">
           <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 4h9a3 3 0 0 1 3 3v13H9a3 3 0 0 0-3 3z"/><path d="M9 9h6M9 13h6" stroke-linecap="round"/></svg></div>
         </div>
@@ -302,7 +326,7 @@
         </div>
       </div>
 
-      <div class="proj">
+      <div class="proj tilt">
         <div class="top">
           <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="11" rx="2"/><path d="M3 11h18"/><circle cx="7.5" cy="20" r="1.5"/><circle cx="16.5" cy="20" r="1.5"/></svg></div>
           <span class="star">★ 3</span>
@@ -315,7 +339,7 @@
         </div>
       </div>
 
-      <div class="proj">
+      <div class="proj tilt">
         <div class="top">
           <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
           <span class="star">★ 2</span>
@@ -328,7 +352,7 @@
         </div>
       </div>
 
-      <div class="proj">
+      <div class="proj tilt">
         <div class="top">
           <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 13h6" /></svg></div>
           <span class="star">★ 2</span>
@@ -341,7 +365,7 @@
         </div>
       </div>
 
-      <div class="proj">
+      <div class="proj tilt">
         <div class="top">
           <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
           <span class="star">★ 3</span>
@@ -354,7 +378,7 @@
         </div>
       </div>
 
-      <div class="proj">
+      <div class="proj tilt">
         <div class="top">
           <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7z"/><path d="m9 12 2 2 4-4"/></svg></div>
         </div>
@@ -366,7 +390,7 @@
         </div>
       </div>
 
-      <div class="proj">
+      <div class="proj tilt">
         <div class="top">
           <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><rect x="3" y="11" width="18" height="6" rx="2"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="16.5" cy="19" r="1.5"/></svg></div>
         </div>
@@ -378,7 +402,7 @@
         </div>
       </div>
 
-      <div class="proj">
+      <div class="proj tilt">
         <div class="top">
           <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="M9 14h6"/></svg></div>
         </div>
@@ -390,7 +414,7 @@
         </div>
       </div>
 
-      <div class="proj">
+      <div class="proj tilt">
         <div class="top">
           <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h20v13H2z"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="2.5"/></svg></div>
         </div>
@@ -402,7 +426,7 @@
         </div>
       </div>
 
-      <div class="proj">
+      <div class="proj tilt">
         <div class="top">
           <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18s3-8 9-8 9 8 9 8"/><path d="M3 18h18"/><path d="M12 4v2"/></svg></div>
         </div>
@@ -417,7 +441,7 @@
         </div>
       </div>
 
-      <div class="proj">
+      <div class="proj tilt">
         <div class="top">
           <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
         </div>
@@ -432,7 +456,7 @@
         </div>
       </div>
 
-      <div class="proj">
+      <div class="proj tilt">
         <div class="top">
           <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4v4h4v4h-4v10h-4V11H6V7h4z"/></svg></div>
           <span class="star">★ 4</span>
@@ -454,12 +478,12 @@
 </section>
 
 <!-- GISTS -->
-<section id="gists" class="alt">
+<section id="gists" class="alt reveal">
   <div class="wrap">
     <div class="sec-head"><span class="k">Snippets</span><h2>Public gists</h2>
       <p>Small, reusable snippets and mini-plugins I've shared publicly.</p></div>
     <div class="gists">
-      <a class="gist" href="https://gist.github.com/Shahnuralam/8d3f905450b5aee7ba7c4392ed2bf1ef" target="_blank" rel="noopener">
+      <a class="gist tilt" href="https://gist.github.com/Shahnuralam/8d3f905450b5aee7ba7c4392ed2bf1ef" target="_blank" rel="noopener">
         <span class="gi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
         <div>
           <b>Review Popup Plugin</b>
@@ -467,7 +491,7 @@
           <div class="files"><span class="f">review-popup-plugin.php</span><span class="f">review-popup.css</span><span class="f">review-popup.js</span></div>
         </div>
       </a>
-      <a class="gist" href="https://gist.github.com/Shahnuralam/909dbe7d2482d7ada72b5357fd939968" target="_blank" rel="noopener">
+      <a class="gist tilt" href="https://gist.github.com/Shahnuralam/909dbe7d2482d7ada72b5357fd939968" target="_blank" rel="noopener">
         <span class="gi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg></span>
         <div>
           <b>Custom Reward Points From API</b>
@@ -480,11 +504,11 @@
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
+<section id="skills" class="reveal">
   <div class="wrap">
     <div class="sec-head"><span class="k">Toolbox</span><h2>Skills &amp; stack</h2></div>
     <div class="skills">
-      <div class="skb">
+      <div class="skb tilt">
         <h4><span class="d"></span>WordPress &amp; WooCommerce</h4>
         <div class="chips">
           <span class="chip">Plugin &amp; Addon Architecture</span>
@@ -497,7 +521,7 @@
           <span class="chip">WP-CLI</span>
         </div>
       </div>
-      <div class="skb">
+      <div class="skb tilt">
         <h4><span class="d"></span>Languages</h4>
         <div class="chips">
           <span class="chip">PHP</span>
@@ -508,7 +532,7 @@
           <span class="chip">HTML5 &amp; CSS3</span>
         </div>
       </div>
-      <div class="skb">
+      <div class="skb tilt">
         <h4><span class="d"></span>Frameworks &amp; Frontend</h4>
         <div class="chips">
           <span class="chip">React</span>
@@ -517,7 +541,7 @@
           <span class="chip">Flutter</span>
         </div>
       </div>
-      <div class="skb">
+      <div class="skb tilt">
         <h4><span class="d"></span>Data &amp; Tooling</h4>
         <div class="chips">
           <span class="chip">MySQL / MariaDB</span>
@@ -533,7 +557,7 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="alt">
+<section id="contact" class="alt reveal">
   <div class="wrap">
     <div class="band">
       <h2>Let's build something</h2>
@@ -565,6 +589,140 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  'use strict';
+  var canvas = document.getElementById('bg');
+  if (!canvas || !canvas.getContext) { return; }
+  var ctx = canvas.getContext('2d');
+  if (!ctx) { return; }
+
+  var mqReduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
+  var mqDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : { matches: false };
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0, cx = 0, cy = 0, R = 0;
+
+  // Fibonacci sphere of points (the "globe").
+  var N = 520, sphere = [];
+  for (var i = 0; i < N; i++) {
+    var t = (i + 0.5) / N;
+    var phi = Math.acos(1 - 2 * t);
+    var theta = Math.PI * (1 + Math.sqrt(5)) * i;
+    sphere.push({ x: Math.sin(phi) * Math.cos(theta), y: Math.sin(phi) * Math.sin(theta), z: Math.cos(phi) });
+  }
+  // Ambient floating particles (wider field, parallax backdrop).
+  var M = 90, parts = [];
+  for (var j = 0; j < M; j++) {
+    parts.push({ x: Math.random() * 2 - 1, y: Math.random() * 2 - 1, z: Math.random() * 2 - 1, s: Math.random() * 0.6 + 0.25 });
+  }
+
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    canvas.width = Math.floor(W * DPR); canvas.height = Math.floor(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    cx = W / 2; cy = H / 2; R = Math.min(W, H) * 0.29;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  var mx = 0, my = 0, tmx = 0, tmy = 0;
+  window.addEventListener('mousemove', function (e) {
+    tmx = e.clientX / W - 0.5;
+    tmy = e.clientY / H - 0.5;
+  }, { passive: true });
+
+  var ang = 0;
+  var fov = 2.2;
+
+  function project(p, rad, cosY, sinY, cosX, sinX, camZ) {
+    var x1 = p.x * cosY - p.z * sinY;
+    var z1 = p.x * sinY + p.z * cosY;
+    var y1 = p.y * cosX - z1 * sinX;
+    var z2 = p.y * sinX + z1 * cosX;
+    var scale = fov / (fov + z2 + camZ);
+    return { sx: cx + x1 * rad * scale, sy: cy + y1 * rad * scale, sc: scale, z: z2 };
+  }
+
+  function frame() {
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var doc = Math.max(1, (document.documentElement.scrollHeight - window.innerHeight));
+    var sp = Math.min(1, scrollY / doc);
+
+    mx += (tmx - mx) * 0.05;
+    my += (tmy - my) * 0.05;
+    ang += mqReduce.matches ? 0 : 0.0016;
+
+    var ay = ang + mx * 0.8 + sp * Math.PI * 1.2;
+    var ax = 0.5 + my * 0.6 + sp * 0.5;
+    var cosY = Math.cos(ay), sinY = Math.sin(ay), cosX = Math.cos(ax), sinX = Math.sin(ax);
+    var camZ = 2.6 - sp * 0.5;
+    var isDark = mqDark.matches;
+    var hue1 = 198 + sp * 34;
+    var hue2 = 250 + sp * 20;
+
+    ctx.clearRect(0, 0, W, H);
+
+    // Ambient particles.
+    for (var a = 0; a < parts.length; a++) {
+      var q = project(parts[a], R * 2.4, cosY, sinY, cosX, sinX, camZ);
+      var qa = (q.sc - 0.4) * 0.6; if (qa < 0) { qa = 0; }
+      ctx.beginPath();
+      ctx.arc(q.sx, q.sy, Math.max(0.3, q.sc * 1.5 * parts[a].s), 0, 6.283185);
+      ctx.fillStyle = 'hsla(' + hue2 + ',70%,' + (isDark ? '72%' : '55%') + ',' + (qa * 0.45) + ')';
+      ctx.fill();
+    }
+
+    // Globe points, sorted far-to-near for depth-correct blending.
+    var pr = [];
+    for (var b = 0; b < sphere.length; b++) {
+      pr.push(project(sphere[b], R, cosY, sinY, cosX, sinX, camZ));
+    }
+    pr.sort(function (u, v) { return v.z - u.z; });
+    for (var c = 0; c < pr.length; c++) {
+      var pp = pr[c];
+      var depth = pp.sc - 0.45; if (depth < 0) { depth = 0; }
+      var size = Math.max(0.4, pp.sc * 2.1);
+      var alpha = (isDark ? 0.24 : 0.20) + depth * 0.95;
+      if (alpha > 0.9) { alpha = 0.9; }
+      var hue = hue1 + (pp.z + 1) * 15;
+      ctx.beginPath();
+      ctx.arc(pp.sx, pp.sy, size, 0, 6.283185);
+      ctx.fillStyle = 'hsla(' + hue + ',85%,' + (isDark ? '62%' : '50%') + ',' + alpha + ')';
+      ctx.fill();
+    }
+
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  // Scroll-reveal.
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); obs.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // 3D tilt on cards (skipped when the user prefers reduced motion or on touch).
+  if (!mqReduce.matches && !window.matchMedia('(hover: none)').matches) {
+    document.querySelectorAll('.tilt').forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = 'perspective(720px) rotateX(' + (-py * 7) + 'deg) rotateY(' + (px * 9) + 'deg) translateY(-3px)';
+      });
+      card.addEventListener('mouseleave', function () { card.style.transform = ''; });
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
