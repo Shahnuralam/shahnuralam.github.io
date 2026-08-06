@@ -19,14 +19,21 @@
 <header class="nav">
   <div class="wrap nav-in">
     <a class="brand" href="#top"><span class="mk">SA</span>Shahnur Alam</a>
-    <nav class="nav-links">
+    <div class="nav-right">
+      <nav class="nav-links" id="navLinks">
       <a class="hide-sm" href="#about">About</a>
       <a class="hide-sm" href="#activity">Activity</a>
       <a class="hide-sm" href="#work">Work</a>
       <a class="hide-sm" href="/wp-mcp-server/">MCP Server</a>
       <a class="hide-sm" href="#skills">Skills</a>
-      <a class="btn btn-ghost" style="padding:8px 15px;font-size:14px" href="#contact">Contact</a>
-    </nav>
+      </nav>
+      <a class="btn btn-ghost nav-cta" style="padding:8px 15px;font-size:14px" href="#contact">Contact</a>
+      <button type="button" class="nav-toggle" id="navToggle"
+        aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg class="ic-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="ic-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 

@@ -33,9 +33,38 @@
   .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
   .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em}
   .brand .mk{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--a),var(--a2));display:grid;place-items:center;color:#fff;font-weight:800;font-size:14px}
+  .nav-right{display:flex;align-items:center;gap:22px}
   .nav-links{display:flex;align-items:center;gap:22px;color:var(--muted);font-weight:500;font-size:15px}
   .nav-links a:hover{color:var(--text)}
-  @media(max-width:760px){.nav-links a.hide-sm{display:none}}
+
+  /* Mobile menu button. Hidden on desktop, where the links sit in the bar. */
+  .nav-toggle{display:none;align-items:center;justify-content:center;padding:9px;border-radius:11px;
+    background:var(--bg-card);border:1px solid var(--border);color:var(--text);cursor:pointer;
+    transition:border-color .12s,transform .12s}
+  .nav-toggle:hover{border-color:var(--a)}
+  .nav-toggle:active{transform:translateY(1px)}
+  .nav-toggle:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+  .nav-toggle .ic-close{display:none}
+  .nav-toggle[aria-expanded="true"] .ic-open{display:none}
+  .nav-toggle[aria-expanded="true"] .ic-close{display:block}
+
+  @media(max-width:760px){
+    .nav-right{gap:10px}
+    .nav-toggle{display:inline-flex}
+    .nav-cta{display:none}
+    /* The links drop out of the bar into a panel under it. Previously they were
+       simply hidden at this width, which left no way to reach them at all. */
+    .nav-links{position:absolute;top:100%;left:0;right:0;display:none;
+      flex-direction:column;align-items:stretch;gap:0;padding:4px 24px 14px;
+      background:color-mix(in srgb,var(--bg) 97%,transparent);
+      -webkit-backdrop-filter:saturate(1.3) blur(10px);backdrop-filter:saturate(1.3) blur(10px);
+      border-bottom:1px solid var(--border);box-shadow:var(--shadow)}
+    .nav-links.open{display:flex}
+    .nav-links a.hide-sm{display:block}
+    .nav-links a{padding:13px 2px;border-bottom:1px solid var(--border);font-size:16px}
+    .nav-links a:last-child{border-bottom:0}
+    .nav-links .btn{margin-top:12px;justify-content:center;border-bottom:0}
+  }
 
   /* hero */
   .hero{position:relative;overflow:hidden;padding:70px 0 56px}

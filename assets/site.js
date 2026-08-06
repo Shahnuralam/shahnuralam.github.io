@@ -129,3 +129,47 @@
     });
   }
 })();
+
+/* Mobile main menu.
+   Separate IIFE from the background scene above, which returns early when the
+   canvas is missing — the menu must not depend on that. */
+(function () {
+  'use strict';
+  var btn = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if (!btn || !links) { return; }
+
+  function setOpen(open) {
+    if (open) { links.classList.add('open'); } else { links.classList.remove('open'); }
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    setOpen(links.className.indexOf('open') === -1);
+  });
+
+  // Any link closes it, including the in-page anchors.
+  links.addEventListener('click', function (e) {
+    var t = e.target;
+    while (t && t !== links) {
+      if (t.tagName === 'A') { setOpen(false); return; }
+      t = t.parentNode;
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (links.className.indexOf('open') === -1) { return; }
+    if (!links.contains(e.target) && !btn.contains(e.target)) { setOpen(false); }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' || e.keyCode === 27) { setOpen(false); }
+  });
+
+  // Resizing to desktop must not leave the panel state stuck open.
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 760) { setOpen(false); }
+  });
+})();
