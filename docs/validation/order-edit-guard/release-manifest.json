@@ -1,0 +1,51 @@
+{
+  "version": "1.0.1",
+  "runtime_files": [
+    "LICENSE",
+    "assets/css/admin.css",
+    "assets/js/admin.js",
+    "assets/js/workspace.js",
+    "includes/Admin/Admin.php",
+    "includes/Admin/Components.php",
+    "includes/Admin/Workspace.php",
+    "includes/Core/Plugin.php",
+    "includes/Core/Settings.php",
+    "includes/Database/Event_Repository.php",
+    "includes/Database/Installer.php",
+    "includes/Privacy/Masker.php",
+    "includes/Privacy/Privacy.php",
+    "includes/Services/Audit_Recorder.php",
+    "includes/Services/Change_Reason.php",
+    "includes/Services/Order_Diff.php",
+    "includes/Services/Order_Snapshot.php",
+    "includes/Services/Preflight.php",
+    "includes/Services/Request_Context.php",
+    "includes/Support/Capabilities.php",
+    "includes/Support/Formatting.php",
+    "includes/Support/Logger.php",
+    "includes/Support/Order_Lock.php",
+    "includes/Support/Settings_Lock.php",
+    "languages/order-edit-guard-for-woocommerce.pot",
+    "order-edit-guard-for-woocommerce.php",
+    "readme.txt",
+    "uninstall.php"
+  ],
+  "directory_assets": [
+    "banner-1544x500.png",
+    "banner-772x250.png",
+    "icon-128x128.png",
+    "icon-256x256.png",
+    "screenshot-1.png",
+    "screenshot-2.png",
+    "screenshot-3.png",
+    "screenshot-4.png",
+    "screenshot-5.png",
+    "screenshot-6.png",
+    "screenshot-7.png",
+    "screenshot-8.png"
+  ],
+  "sha256": {
+    "order-edit-guard-for-woocommerce-1.0.1.zip": "a84d9aa28ff398373f412249e0abeaa35553820d2b72663ee512145f058dda42",
+    "order-edit-guard-for-woocommerce-wordpress-org-assets.zip": "44e2c5e182722a1b1d9cf3f6d8ebf7eefe152ee26e9f170318c62fe7da587bca"
+  }
+}

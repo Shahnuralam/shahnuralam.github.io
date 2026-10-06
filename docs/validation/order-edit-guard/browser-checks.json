@@ -1,0 +1,16 @@
+{
+  "localLinks": 7,
+  "download": true,
+  "screenshotTabs": true,
+  "keyboardTabs": true,
+  "mobileNavigation": true,
+  "widths": [
+    390,
+    768,
+    1024,
+    1440
+  ],
+  "overflow": false,
+  "portfolioEntry": true,
+  "errors": []
+}
