@@ -1,0 +1,52 @@
+{
+  "version": "1.0.2",
+  "runtime_files": [
+    "LICENSE",
+    "assets/css/admin.css",
+    "assets/js/admin.js",
+    "assets/js/workspace.js",
+    "editharbor.php",
+    "includes/Admin/Admin.php",
+    "includes/Admin/Components.php",
+    "includes/Admin/Workspace.php",
+    "includes/Core/Plugin.php",
+    "includes/Core/Settings.php",
+    "includes/Database/Event_Repository.php",
+    "includes/Database/Installer.php",
+    "includes/Database/Legacy_Upgrade.php",
+    "includes/Privacy/Masker.php",
+    "includes/Privacy/Privacy.php",
+    "includes/Services/Audit_Recorder.php",
+    "includes/Services/Change_Reason.php",
+    "includes/Services/Order_Diff.php",
+    "includes/Services/Order_Snapshot.php",
+    "includes/Services/Preflight.php",
+    "includes/Services/Request_Context.php",
+    "includes/Support/Capabilities.php",
+    "includes/Support/Formatting.php",
+    "includes/Support/Logger.php",
+    "includes/Support/Order_Lock.php",
+    "includes/Support/Settings_Lock.php",
+    "languages/editharbor.pot",
+    "readme.txt",
+    "uninstall.php"
+  ],
+  "directory_assets": [
+    "banner-1544x500.png",
+    "banner-772x250.png",
+    "icon-128x128.png",
+    "icon-256x256.png",
+    "screenshot-1.png",
+    "screenshot-2.png",
+    "screenshot-3.png",
+    "screenshot-4.png",
+    "screenshot-5.png",
+    "screenshot-6.png",
+    "screenshot-7.png",
+    "screenshot-8.png"
+  ],
+  "sha256": {
+    "editharbor-1.0.2.zip": "16fa0191591900594aa355eaa3c10a1cd724d098de1689cd84ad4d09266727e0",
+    "editharbor-wordpress-org-assets.zip": "5047bcd1a258d22eef9fa2236ea6d608c2b746164057390fbbe880f404c1b814"
+  }
+}
