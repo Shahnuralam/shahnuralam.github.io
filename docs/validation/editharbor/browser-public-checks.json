@@ -1,0 +1,18 @@
+{
+  "base": "https://shahnuralam.github.io",
+  "widths": [
+    390,
+    768,
+    1024,
+    1440
+  ],
+  "links": 5,
+  "screenshotTabs": true,
+  "keyboardTabs": true,
+  "menu": true,
+  "portfolioEntry": true,
+  "download": true,
+  "errors": [],
+  "sha256": "16fa0191591900594aa355eaa3c10a1cd724d098de1689cd84ad4d09266727e0",
+  "oldRouteRedirect": true
+}
