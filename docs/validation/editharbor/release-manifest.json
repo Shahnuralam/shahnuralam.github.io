@@ -1,5 +1,5 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.3",
   "runtime_files": [
     "LICENSE",
     "assets/css/admin.css",
@@ -23,6 +23,7 @@
     "includes/Services/Preflight.php",
     "includes/Services/Request_Context.php",
     "includes/Support/Capabilities.php",
+    "includes/Support/Database_Lock.php",
     "includes/Support/Formatting.php",
     "includes/Support/Logger.php",
     "includes/Support/Order_Lock.php",
@@ -46,7 +47,7 @@
     "screenshot-8.png"
   ],
   "sha256": {
-    "editharbor-1.0.2.zip": "16fa0191591900594aa355eaa3c10a1cd724d098de1689cd84ad4d09266727e0",
+    "editharbor-1.0.3.zip": "47fbb987090fbcf80b933571a6531f0867ede517d7b7421cdfdefb6627983b8c",
     "editharbor-wordpress-org-assets.zip": "5047bcd1a258d22eef9fa2236ea6d608c2b746164057390fbbe880f404c1b814"
   }
 }
