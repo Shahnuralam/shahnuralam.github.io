@@ -1,0 +1,18 @@
+{
+  "editharbor": {
+    "version": "1.0.5",
+    "root": "editharbor",
+    "runtime_files": 30,
+    "sha256": "fd99762833d31e9f47720bbfa9163d3dd739aeaf31934cc6e78cdc5ea5c22d3f",
+    "all_files_match_source": true
+  },
+  "editharbor-pro": {
+    "version": "1.0.3",
+    "root": "editharbor-pro",
+    "runtime_files": 28,
+    "sha256": "342a4f73fe730ac1c5b1b4218e7ad983143a616eaed101d73c022acbf0c4ce75",
+    "all_files_match_source": true
+  },
+  "gettext_domain_arguments": 320,
+  "includes_code_changes_only_domain_literals": true
+}

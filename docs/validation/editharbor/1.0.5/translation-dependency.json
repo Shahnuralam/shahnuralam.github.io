@@ -1,0 +1,16 @@
+{
+    "wordpress": "7.1.3",
+    "php": "8.3.6",
+    "free_version": "1.0.5",
+    "pro_version": "1.0.3",
+    "free_path": "editharbor\/editharbor.php",
+    "header_domain": "editharbor",
+    "pro_dependency_slugs": [
+        "editharbor",
+        "woocommerce"
+    ],
+    "pro_dependencies_met": true,
+    "admin_catalog_translation": true,
+    "free_booted": true,
+    "pro_booted": true
+}
