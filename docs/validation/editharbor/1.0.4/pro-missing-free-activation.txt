@@ -1,0 +1,2 @@
+Warning: Failed to activate plugin. EditHarbor Pro requires 1 plugin to be installed and activated: EditHarbor – Order History & Guard for WooCommerce. .
+Error: No plugins activated.
